@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable lines-between-class-members */
 const { months, mos, days, dys } = require('./utils');
 
@@ -108,20 +109,123 @@ class D {
     }
     return dateStr;
   }
-}
 
-const someDay = new D(2022, 3, 8, 5, 6, 7);
-const today = new D();
-console.log(someDay.format('Y y O o M m D d, T t - H h : I i : S s'));
-console.log('Y y O o M m D d, T t - H h : I i : S s');
-console.log(someDay.format('y/m/t'));
-console.log('y/m/t');
-console.log(someDay.format('H:I:S'));
-console.log('H:I:S');
-console.log(someDay.format('h:i:s'));
-console.log('h:i:s');
-console.log(someDay.format('Y-M-T h:I:S'));
-console.log('Y-M-T h:I:S');
-console.log(today.format('Y/M/T, O d h:I '));
+  when() {
+    const now = new Date();
+    const dy = this.dateObj.getFullYear() - now.getFullYear();
+    const dm = this.dateObj.getMonth() - now.getMonth();
+    const totalMonths = dy * 12 + dm;
+    const dd = (now - this.dateObj) / 86400 / 1000 + 1;
+    const dw = dd / 7;
+    const ddRound = Math.round(dd);
+    const dwRound = Math.round(dw);
+
+    if (Math.abs(dd) < 7) {
+      return `${Math.abs(ddRound)} day${Math.abs(ddRound) > 1 ? 's' : ''} ${ddRound > 0 ? 'ago' : 'from now'}`;
+    } if (Math.abs(dw) < 4) {
+      return `${Math.abs(dwRound)} week${Math.abs(dwRound) > 1 ? 's' : ''} ${dwRound > 0 ? 'ago' : 'from now'}`;
+    } if (Math.abs(totalMonths) < 12) {
+      return `${Math.abs(totalMonths)} month${Math.abs(totalMonths) > 1 ? 's' : ''} ${totalMonths < 0 ? 'ago' : 'from now'}`;
+    } if (Math.abs(dy) >= 1) {
+      return `${Math.abs(dy)} year${Math.abs(dy) > 1 ? 's' : ''} ${dy < 0 ? 'ago' : 'from now'}`;
+    }
+  }
+}
+console.log('YEARS');
+console.log('25 years ago');
+const a = new D(1997, 3, 17);
+console.log(a.when());
+console.log('2 years ago');
+const b = new D(2020, 3, 17);
+console.log(b.when());
+console.log('1 year ago');
+const c = new D(2021, 3, 17);
+console.log(c.when());
+console.log('');
+
+console.log('MONTHS');
+console.log('7 months ago');
+const e = new D(2021, 8, 19);
+console.log(e.when());
+console.log('1 month ago');
+const f = new D(2022, 2, 17);
+console.log(f.when());
+console.log('');
+
+console.log('WEEKS');
+console.log('3 weeks ago');
+const h = new D(2022, 3, 4);
+console.log(h.when());
+console.log('2 weeks ago');
+const i = new D(2022, 3, 12);
+console.log(i.when());
+console.log('1 week ago');
+const j = new D(2022, 3, 15);
+console.log(j.when());
+console.log('');
+
+console.log('DAYS');
+console.log('7 days ago');
+const k = new D(2022, 3, 16);
+console.log(k.when());
+console.log('5 days ago');
+const l = new D(2022, 3, 18);
+console.log(l.when());
+console.log('2 days ago');
+const m = new D(2022, 3, 21);
+console.log(m.when());
+
+console.log('DAYS');
+
+console.log('4 days from now');
+const s = new D(2022, 3, 27);
+console.log(s.when());
+console.log('6 days from now');
+const t = new D(2022, 3, 29);
+console.log(t.when());
+console.log('');
+
+console.log('WEEKS');
+console.log('1 week from now');
+const u = new D(2022, 3, 30);
+console.log(u.when());
+console.log('3 weeks from now');
+const v = new D(2022, 4, 13);
+console.log(v.when());
+console.log('4 weeks from now');
+const w = new D(2022, 4, 20);
+console.log(w.when());
+console.log('');
+
+console.log('MONTHS');
+console.log('1 month from now');
+const x = new D(2022, 4, 21);
+console.log(x.when());
+console.log('3 months from now');
+const y = new D(2022, 6, 22);
+console.log(y.when());
+console.log('');
+
+console.log('YEARS');
+console.log('1 year from now');
+const myeh = new D(2023, 3, 23);
+console.log(myeh.when());
+console.log('4 years from now');
+const wow = new D(2026, 3, 22);
+console.log(wow.when());
+
+// const someDay = new D(2022, 3, 8, 5, 6, 7);
+// const today = new D();
+// console.log(someDay.format('Y y O o M m D d, T t - H h : I i : S s'));
+// console.log('Y y O o M m D d, T t - H h : I i : S s');
+// console.log(someDay.format('y/m/t'));
+// console.log('y/m/t');
+// console.log(someDay.format('H:I:S'));
+// console.log('H:I:S');
+// console.log(someDay.format('h:i:s'));
+// console.log('h:i:s');
+// console.log(someDay.format('Y-M-T h:I:S'));
+// console.log('Y-M-T h:I:S');
+// console.log(today.format('Y/M/T, O d h:I '));
 
 module.exports = D;
