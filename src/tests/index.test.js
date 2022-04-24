@@ -40,13 +40,13 @@ test('D.numMo', () => {
 });
 
 test('D.day', () => {
-  expect(bday.day).toBe(days[today.getDay()]);
+  expect(d.day).toBe(days[today.getDay()]);
   expect(bday.day).toBe('Thursday');
   expect(random.day).toBe('Tuesday');
 });
 
 test('D.dy', () => {
-  expect(bday.dy).toBe(dys[today.getDay()]);
+  expect(d.dy).toBe(dys[today.getDay()]);
   expect(bday.dy).toBe('Thurs');
   expect(random.dy).toBe('Tues');
 });

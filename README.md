@@ -66,4 +66,4 @@ Publish to npm. include the following badges in README.md:
 - npm version
 - license
 - size
-- GitHub Issues
+- GitHub issues
