@@ -1,12 +1,18 @@
 # Date Lib
 
+![npm](https://img.shields.io/npm/v/@maybejaybe/date-lib)
+
+![NPM](https://img.shields.io/npm/l/@maybejaybe/date-lib)
+
+![GitHub file size in bytes](https://img.shields.io/github/size/MaybeJaybe/date-lib/src/index.js)
+
+![GitHub issues](https://img.shields.io/github/issues/MaybeJaybe/date-lib)
+
 Javascript Library of date functions created to make life just a little easier when it comes to calling dates in a project.
 
 Assignment elaborated [here](https://github.com/Tech-at-DU/ACS-3310-Writing-JavaScript-Libraries/blob/master/assignments/assignment-07.md)
 
-<!-- ![npm bundle size](https://img.shields.io/bundlephobia/min/@maybejaybe/string-lib)
-![npm](https://img.shields.io/npm/v/@maybejaybe/string-lib) -->
-<!-- Published npm package [here](https://www.npmjs.com/package/@maybejaybe/date-lib) -->
+Published npm package [here](https://www.npmjs.com/package/@maybejaybe/date-lib)
 
 ---
 
